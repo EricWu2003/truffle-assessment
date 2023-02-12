@@ -10,15 +10,16 @@ app.use(express.json());
 // an ISO-8601 date string.
 // billAmount is a field that represents the total cost in cents, and should therefore be a 
 // positive integer.
-let bills = [
-  {
-    patientFullName: "Eric Wu",
-    patientAddr: "330 De Neve Drive, Los Angeles, CA 90024",
-    hospitalName: "UCLA Ronald Reagan Medical Center",
-    serviceDate: "2023-01-13",
-    billAmount: 4500,
-  }
-]
+
+// An example of an object in the bills array is:
+    // {
+    //   patientFullName: "Eric Wu",
+    //   patientAddr: "330 De Neve Drive, Los Angeles, CA 90024",
+    //   hospitalName: "UCLA Ronald Reagan Medical Center",
+    //   serviceDate: "2023-01-13",
+    //   billAmount: 4500,
+    // }
+let bills = []
 
 
 app.get('/items', (req, res) => {
