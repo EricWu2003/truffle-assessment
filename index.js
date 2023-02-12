@@ -70,6 +70,15 @@ app.post('/items', (req, res) => {
     return;
   }
 
+  if (Object.keys(body).length > 5) {
+    // we already know that the body contains the 5 keys that are required, so if there are > 5 keys
+    // then there must be extraneous fields in the POST request.
+    const n  = Object.keys(body).length
+    res.status(400).send(`Bad request: request contains more fields than expected (expected 5, got ${n}).`);
+    return;
+  }
+
+
   bills.push(body);
   bills.sort((bill1, bill2) => compareDates(bill1.serviceDate, bill2.serviceDate));
   res.status(200).send("OK")
